@@ -1,9 +1,22 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: "", redirectTo: "home", pathMatch: "full" },
+  {
+    path: "home",
+    loadChildren: () => import("./home/home.module").then(m => m.HomePageModule)
+  },
+  {
+    path: "login",
+    loadChildren: () =>
+      import("./auth/login/login.module").then(m => m.LoginPageModule)
+  },
+  {
+    path: "signup",
+    loadChildren: () =>
+      import("./auth/signup/signup.module").then(m => m.SignupPageModule)
+  }
 ];
 
 @NgModule({
@@ -12,4 +25,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
